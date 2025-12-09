@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"libasm.h": "c",
+		"type_traits": "c",
+		"test_libasm.h": "c",
+		"typeinfo": "c",
+		"wait.h": "c",
+		"stdio.h": "c",
+		"fcntl.h": "c"
+	}
+}
