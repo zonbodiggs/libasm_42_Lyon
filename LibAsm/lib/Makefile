@@ -58,7 +58,7 @@ exec_test:
 test_mandatory: exec_test
 	./$(CNAME) mandatory
 	@echo "end of mandatory test"
-# 	@$(MAKE) clean_test -s
+	@$(MAKE) clean_test -s
 
 test_bonus: exec_test
 	./$(CNAME) bonus
