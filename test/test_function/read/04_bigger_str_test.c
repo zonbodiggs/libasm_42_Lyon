@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 10:01:03 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 14:16:21 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/10 15:23:09 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,6 @@ static void	create_file(void)
 	free(buff);
 }
 
-static int	free_and_return(char *value1, char *value2, int return_code)
-{
-	free(value1);
-	free(value2);
-	return (return_code);
-}
-
 int	read_bigger_string_test(void)
 {
 	ssize_t	size_real;
@@ -84,6 +77,6 @@ int	read_bigger_string_test(void)
 	remove("test/test_function/read/test.txt");
 	if (buff_real && buff_assembly && strcmp(buff_real, buff_assembly) == 0
 		&& size_real == size_assembly)
-		return (free_and_return(buff_real, buff_assembly, 0));
-	return (free_and_return(buff_real, buff_assembly, -1));
+		return (free(buff_real), free(buff_assembly), 0);
+	return (free(buff_real), free(buff_assembly), -1);
 }

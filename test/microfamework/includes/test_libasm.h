@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:53:45 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 12:12:18 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/10 15:26:47 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		strdup_launcher(void);
 int		strdup_basic_test(void);
 int		strdup_null_test(void);
 int		strdup_bigger_string_test(void);
+int		strdup_void_test(void);
 
 				/*********test for strcpy*********/
 int		strcpy_launcher(void);

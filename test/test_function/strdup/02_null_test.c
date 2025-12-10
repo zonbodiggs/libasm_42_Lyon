@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 10:15:51 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 10:16:08 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/10 15:24:54 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 int	strdup_null_test(void)
 {
+	char	*src;
+
+	src = NULL;
+	ft_strdup(src);
 	return (-1);
 }
