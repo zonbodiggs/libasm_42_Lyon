@@ -21,8 +21,22 @@ section .text
 
 			inc rcx							; increase loop register
 			jmp _loop						; recall the loop
+
 		_exit:
 			movzx rax, byte [rdi + rcx]		; put s1[rcx] in return register
+			cmp rax, NULL
+			JG _superior
 			movzx rbx, byte [rsi + rcx]
+			cmp rbx, NULL
+			JG _inferior
 			sub rax, rbx					; sub rax with s2[rcx]
 			ret								; return rax
+
+		_inferior:
+			mov rax, -1
+			ret
+
+		_superior:
+			mov rax, 1
+			ret
+

@@ -1,5 +1,17 @@
-#ifndef TEST_H
-# define TEST_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   launcher.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/10 09:45:15 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 09:52:44 by endoliam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef LAUNCHER_H
+# define LAUNCHER_H
 
 # include <stdio.h>
 # include <string.h>
@@ -21,8 +33,8 @@
 
 typedef int	(t_test_func)(void);
 
-typedef struct s_test {
-
+typedef struct s_test
+{
 	char				name[MAX_NAME_LENGHT];
 	int					id;
 	t_test_func			*function;
@@ -30,14 +42,14 @@ typedef struct s_test {
 	int					flags;
 	int					exit_code;
 	bool				signal;
-	struct s_test 		*next;
+	struct s_test		*next;
 
-} t_test;
+}	t_test;
 
-// void	puts(const char *function_name);
-
-void	load_test(t_test **test_list, char *test_name, t_test_func *function, bool signal);
-int		start_test();
+void	load_test(t_test **test_list, char *test_name,
+			t_test_func *function, bool signal);
 int		launch_test(t_test *test_list);
+void	exit_error(t_test *testlist);
+void	free_and_return(t_test *testlist);
 
 #endif

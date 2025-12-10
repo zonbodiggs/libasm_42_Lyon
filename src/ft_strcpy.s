@@ -8,9 +8,6 @@ section .text
 	ft_strcpy:
 		mov rcx, 0								; init loop register
 
-		cmp byte [rsi + rcx], NULL				; if *src == '\0' return
-		JZ _exit
-
 		_loop:
 			mov byte al, [rsi + rcx]
 			mov byte [rdi + rcx], al			; copy src[rcs] into dest[rcx]

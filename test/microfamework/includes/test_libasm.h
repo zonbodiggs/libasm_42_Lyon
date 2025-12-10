@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_libasm.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/10 09:53:45 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 10:44:42 by endoliam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef TEST_LIBASM_H
 # define TEST_LIBASM_H
 
@@ -9,7 +21,7 @@ int		strlen_launcher(void);
 int		strlen_basic_test(void);
 int		strlen_null_test(void);
 int		strlen_bigger_string_test(void);
-int 	strlen_void_test(void);
+int		strlen_void_test(void);
 
 				/*********test for read*********/
 int		read_launcher(void);
@@ -23,6 +35,11 @@ int		strcmp_diff_test(void);
 int		strcmp_basic_test(void);
 int		strcmp_null_test(void);
 int		strcmp_bigger_string_test(void);
+int		strcmp_void_test(void);
+int		strcmp_void_s1_test(void);
+int		strcmp_void_s2_test(void);
+int		strcmp_bigger_s1_test(void);
+int		strcmp_bigger_s2_test(void);
 
 				/*********test for strdup*********/
 int		strdup_launcher(void);
@@ -35,6 +52,11 @@ int		strcpy_launcher(void);
 int		strcpy_basic_test(void);
 int		strcpy_null_test(void);
 int		strcpy_bigger_string_test(void);
+int		strcpy_void_test(void);
+int		strcpy_void_s1_test(void);
+int		strcpy_void_s2_test(void);
+int		strcpy_bigger_s1_test(void);
+int		strcpy_bigger_s2_test(void);
 
 				/*********test for write*********/
 int		write_launcher(void);

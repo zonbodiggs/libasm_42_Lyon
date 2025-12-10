@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   05_void_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 10:15:35 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 10:15:43 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/10 10:08:09 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 10:08:17 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
-int	strdup_basic_test(void)
+int	strcmp_void_test(void)
 {
+	if (strcmp("", "") == ft_strcmp("", ""))
+		return (0);
 	return (-1);
 }

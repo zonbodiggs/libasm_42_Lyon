@@ -1,10 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   04_bigger_str_test.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/10 10:05:56 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 10:08:04 by endoliam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libasm.h"
 
-static char	*get_big_str(void) {
-	char *res = malloc(2147483648 * sizeof(char));
-	long long i = 0;
+static char	*get_big_str(void)
+{
+	char			*res;
+	long long		i;
 
-	while(i < 2147483647) {
+	res = malloc(2147483648 * sizeof(char));
+	i = 0;
+	while (i < 2147483647)
+	{
 		res[i] = 'a';
 		i++;
 	}
@@ -12,12 +28,18 @@ static char	*get_big_str(void) {
 	return (res);
 }
 
-int strcmp_bigger_string_test(void) {
-	char *bigstr = get_big_str();
-	if (ft_strcmp("bonjour", bigstr)) {
-		free(bigstr);		
-		return (0);
-	}
-	free(bigstr);
-	return (-1);
+static int	free_and_return(char *value_to_free, int return_code)
+{
+	free(value_to_free);
+	return (return_code);
+}
+
+int	strcmp_bigger_string_test(void)
+{
+	char	*bigstr;
+
+	bigstr = get_big_str();
+	if (ft_strcmp("bonjour", bigstr) == strcmp("bonjour", bigstr))
+		return (free_and_return(bigstr, 0));
+	return (free_and_return(bigstr, -1));
 }

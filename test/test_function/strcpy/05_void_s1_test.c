@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   05_void_s1_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 10:15:35 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 10:15:43 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/10 10:14:18 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 10:14:33 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
-int	strdup_basic_test(void)
+int	strcpy_void_s1_test(void)
 {
+	ft_strcpy("", "sdafsaf");
 	return (-1);
 }

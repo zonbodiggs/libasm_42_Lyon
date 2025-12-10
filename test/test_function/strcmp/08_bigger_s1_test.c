@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   08_bigger_s1_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 10:15:35 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 10:15:43 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/10 10:36:50 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 11:00:35 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
-int	strdup_basic_test(void)
+int	strcmp_bigger_s1_test(void)
 {
+	if (strcmp("123456789", "12345678") == ft_strcmp("123456789", "12345678"))
+		return (0);
+	printf("strcmp is: %d, ft_strcmp is: %d\n", strcmp("123456789", "12345678"), ft_strcmp("123456789", "12345678"));
 	return (-1);
 }

@@ -1,7 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/10 10:17:34 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 10:17:49 by endoliam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libasm.h"
 
-int strlen_null_test(void) {
-	char *str = NULL;
+int	strlen_null_test(void)
+{
+	char	*str;
+
+	str = NULL;
 	ft_strlen(str);
 	return (-1);
 }

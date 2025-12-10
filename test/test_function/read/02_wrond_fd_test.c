@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   02_wrond_fd_test.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/10 10:01:11 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 10:01:16 by endoliam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libasm.h"
 
 // static char *charge_function(ssize_t(*function)(int fd, void *buff, size_t count), ssize_t *size) {
@@ -21,3 +33,4 @@ int read_wrond_fd_test(void) {
 	// printf("size read is: %zd, size ft_read is: %zd\n", size_real, size_assembly);
 	return (-1);
 }
+
