@@ -1,0 +1,6 @@
+*.o
+.obj
+.cobj
+pacoasm
+libasm.a
+.vscode

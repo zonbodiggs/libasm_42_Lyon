@@ -8,7 +8,8 @@ int	strlen_launcher(void) {
 
 	load_test(&testlist, "Basic test", &strlen_basic_test, false);
 	load_test(&testlist, "NULL test", &strlen_null_test, true);
-	load_test(&testlist, "Bigger string test", &strlen_bigger_string_test, true);
+	load_test(&testlist, "Bigger string test", &strlen_bigger_string_test, false);
+	load_test(&testlist, "Void string test", &strlen_void_test, false);
 
 	return (launch_test(testlist));
 }

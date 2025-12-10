@@ -23,8 +23,10 @@ int start_test() {
 	return (0);
 }
 
-void	child_process(t_test testlist) {
-	exit (((*testlist.function)()));
+void	child_process(t_test *testlist) {
+	int exit_code = ((*testlist).function)();
+	free_list(&testlist);
+	exit (exit_code);
 }
 
 void 	print_result(t_test testlist) {
@@ -72,14 +74,14 @@ int launch_test(t_test *testlist) {
 		if (exec->id == -1)
 			exit_error(testlist);
 		if (exec->id == 0) {
-			child_process(*exec);
+			child_process(exec);
 		}
 		if (wait(&exec->status) == -1)
 			exit_error(testlist);
 		check_result(exec);
 		print_result(*exec);
-		exec = exec->next;
+		free_one_element(&exec);
 	}
-	free_list(&testlist);
+	// free_list(&testlist);
 	return (0);
 }

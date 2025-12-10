@@ -1,7 +1,7 @@
 #include "libasm.h"
 
 int strlen_basic_test(void) {
-	if (strlen("hello") == ft_strlen("hello"))
+	if (strlen("Hello World!") == ft_strlen("Hello World!"))
 		return 0;
 	return -1;
 }

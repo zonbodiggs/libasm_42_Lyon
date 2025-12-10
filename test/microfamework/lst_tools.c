@@ -34,3 +34,10 @@ void free_list(t_test **testlist) {
 		*testlist = tmp;
 	}
 }
+
+void free_one_element(t_test **testlist) {
+	t_test *next = (*testlist)->next;
+	if (*testlist) 
+		free(*testlist);
+	*testlist = next;
+}

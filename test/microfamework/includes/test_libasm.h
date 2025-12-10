@@ -9,6 +9,7 @@ int		strlen_launcher(void);
 int		strlen_basic_test(void);
 int		strlen_null_test(void);
 int		strlen_bigger_string_test(void);
+int 	strlen_void_test(void);
 
 				/*********test for read*********/
 int		read_launcher(void);

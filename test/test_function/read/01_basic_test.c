@@ -16,7 +16,7 @@ static char	*charge_function(ssize_t(*function)(int fd, void *buff, size_t count
 }
 
 void	create_file(void) {
-	int fd = open("test/test_function/read/test.txt", O_TRUNC | O_CREAT | O_WRONLY );
+	int fd = open("test/test_function/read/test.txt", O_TRUNC | O_CREAT | O_WRONLY, 0644);
 
 	if (fd == -1) {
 		printf("There is no fd\n");
@@ -35,7 +35,7 @@ int	read_basic_test(void) {
 	char *buff_assembly = charge_function(&ft_read, &size_assembly);
 	
 	remove("test/test_function/read/test.txt");
-	if (strcmp(buff_real, buff_assembly) == 0 && size_real == size_assembly)
+	if (buff_real && buff_assembly && strcmp(buff_real, buff_assembly) == 0 && size_real == size_assembly)
 		return (0);
 	return (-1);
 }
