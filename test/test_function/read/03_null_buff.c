@@ -1,39 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_wrond_fd_test.c                                 :+:      :+:    :+:   */
+/*   03_null_buff.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 10:01:11 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 12:23:45 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/10 12:12:32 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 13:16:53 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
+#include <fcntl.h>
 #include <errno.h>
 
 static char	*charge_function(ssize_t(*function)(int fd, void *buff
 							, size_t count), ssize_t *size)
 {
 	int			fd;
-	static char	buff[1024];
+	static char	*buff;
 
-	fd = -1;
+	fd = open("test/test_function/read/test.txt", O_RDONLY);
+	if (fd == -1)
+		return (printf("There is no fd\n"), NULL);
 	*size = (*function)(fd, buff, sizeof(buff) - 1);
-	buff[strlen(buff) + 1] = '\0';
-	if (errno != EBADF)
+	close(fd);
+	if (errno != EFAULT)
 		return (NULL);
-	return (buff);
+	return ("ok");
 }
 
-int	read_wrond_fd_test(void)
+static void	create_file(void)
+{
+	int		fd;
+
+	fd = open("test/test_function/read/test.txt", O_TRUNC | O_CREAT | O_WRONLY,
+			0644);
+	if (fd == -1)
+	{
+		printf("Failed to load file test.txt\n");
+		return ;
+	}
+	write(fd, "hello World!", strlen("Hello World!"));
+	close(fd);
+}
+
+int	read_null_buf_test(void)
 {
 	ssize_t		size_real;
 	ssize_t		size_assembly;
 	char		*buff_real;
 	char		*buff_assembly;
 
+	create_file();
 	size_assembly = 0;
 	size_real = 0;
 	buff_real = charge_function(&read, &size_real);

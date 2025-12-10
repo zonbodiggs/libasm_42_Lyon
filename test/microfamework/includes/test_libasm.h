@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:53:45 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 10:44:42 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:12:18 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		strlen_void_test(void);
 int		read_launcher(void);
 int		read_basic_test(void);
 int		read_wrond_fd_test(void);
+int		read_null_buf_test(void);
 int		read_bigger_string_test(void);
 
 				/*********test for strcmp*********/
@@ -61,7 +62,8 @@ int		strcpy_bigger_s2_test(void);
 				/*********test for write*********/
 int		write_launcher(void);
 int		write_basic_test(void);
-int		write_null_test(void);
+int		write_wrond_fd_test(void);
+int		write_null_buf_test(void);
 int		write_bigger_string_test(void);
 
 /*************************test mandatory*************************/

@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 10:19:38 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 10:20:14 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:41:26 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	write_launcher(void)
 	testlist = NULL;
 	printf("%sWRITE:%s\n", BLUE, RESET);
 	load_test(&testlist, "Basic test", &write_basic_test, false);
-	load_test(&testlist, "Wrong fd test", &write_null_test, false);
+	load_test(&testlist, "Wrong fd test", &write_wrond_fd_test, false);
+	load_test(&testlist, "NULL buff test", &write_null_buf_test, false);
 	load_test(&testlist, "Bigger string test",
 		&write_bigger_string_test, false);
 	return (launch_test(testlist));

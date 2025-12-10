@@ -1,12 +1,13 @@
 bits 64
 
 ; %define  "stdlib.h"
-; %include ""
+; %include "stdio.h"
 
 global ft_strdup
 
 extern malloc
 extern ft_strlen
+extern ft_strcpy
 
 %define NULL 0
 

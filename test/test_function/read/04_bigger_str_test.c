@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   04_bigger_str_test.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 09:57:30 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 12:35:25 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/10 10:01:03 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 14:16:21 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,59 @@ static char	*charge_function(ssize_t(*function)(int fd, void *buff
 							, size_t count), ssize_t *size)
 {
 	int			fd;
-	static char	buff[1024];
+	static char	*buff;
 
 	fd = open("test/test_function/read/test.txt", O_RDONLY);
+	buff = malloc(65535 * sizeof(char));
 	if (fd == -1)
 		return (printf("There is no fd\n"), NULL);
-	*size = (*function)(fd, buff, sizeof(buff) - 1);
+	*size = (*function)(fd, buff, 65535);
 	close(fd);
-	buff[strlen(buff) + 1] = '\0';
 	return (buff);
+}
+
+char	*get_big_str(void)
+{
+	char			*res;
+	long long		i;
+
+	res = malloc(65535 * sizeof(char));
+	i = 0;
+	while (i < 65534)
+	{
+		res[i] = 'a';
+		i++;
+	}
+	res[i++] = '\0';
+	return (res);
 }
 
 static void	create_file(void)
 {
-	int	fd;
+	int		fd;
+	char	*buff;
 
 	fd = open("test/test_function/read/test.txt", O_TRUNC | O_CREAT | O_WRONLY,
 			0644);
+	buff = get_big_str();
 	if (fd == -1)
 	{
 		printf("Failed to load file test.txt\n");
 		return ;
 	}
-	write(fd, "Hello World!", strlen("Hello World!"));
+	write(fd, buff, 65535);
 	close(fd);
+	free(buff);
 }
 
-int	read_basic_test(void)
+static int	free_and_return(char *value1, char *value2, int return_code)
+{
+	free(value1);
+	free(value2);
+	return (return_code);
+}
+
+int	read_bigger_string_test(void)
 {
 	ssize_t	size_real;
 	ssize_t	size_assembly;
@@ -58,6 +84,6 @@ int	read_basic_test(void)
 	remove("test/test_function/read/test.txt");
 	if (buff_real && buff_assembly && strcmp(buff_real, buff_assembly) == 0
 		&& size_real == size_assembly)
-		return (0);
-	return (-1);
+		return (free_and_return(buff_real, buff_assembly, 0));
+	return (free_and_return(buff_real, buff_assembly, -1));
 }

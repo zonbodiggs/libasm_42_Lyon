@@ -1,47 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   04_bigger_str_test.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 10:20:21 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 12:36:22 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/10 10:25:23 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/10 13:02:36 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 #include <fcntl.h>
 
-static char	*read_file(void)
+static char	*get_big_str(void)
 {
-	int			fd;
-	static char	buff[1024];
+	char			*res;
+	long long		i;
 
-	fd = open("test/test_function/write/test.txt", O_RDONLY);
-	if (fd == -1)
-		return (printf("There is no fd\n"), NULL);
-	read(fd, buff, sizeof(buff) - 1);
-	close(fd);
-	buff[strlen(buff) + 1] = '\0';
-	return (buff);
+	res = malloc(65535 * sizeof(char));
+	i = 0;
+	while (i < 65534)
+	{
+		res[i] = 'a';
+		i++;
+	}
+	res[i++] = '\0';
+	return (res);
 }
 
 static char	*charge_function(
 	ssize_t(*function)(int fd, const void *buff, size_t count), ssize_t *size)
 {
-	int		fd;
+	int			fd;
+	static char	*buff;
 
 	fd = open("test/test_function/write/test.txt",
 			O_TRUNC | O_CREAT | O_WRONLY, 0644);
+	buff = get_big_str();
 	if (fd == -1)
 		return (printf("Failed while creating file\n"), NULL);
-	*size = (*function)(fd, "Hello World!", strlen("Hello World!"));
+	*size = (*function)(fd, buff, 65535);
 	close(fd);
-	return (read_file());
+	return (buff);
 }
 
-int	write_basic_test(void)
+static int	free_and_return(char *value1, char *value2, int return_code)
+{
+	free(value1);
+	free(value2);
+	return (return_code);
+}
+
+int	write_bigger_string_test(void)
 {
 	ssize_t		size_real;
 	ssize_t		size_assembly;
@@ -54,6 +65,6 @@ int	write_basic_test(void)
 	buff_assembly = charge_function(&ft_write, &size_assembly);
 	remove("test/test_function/write/test.txt");
 	if (strcmp(buff_real, buff_assembly) == 0 && size_real == size_assembly)
-		return (0);
-	return (-1);
+		return (free_and_return(buff_real, buff_assembly, 0));
+	return (free_and_return(buff_real, buff_assembly, -1));
 }
