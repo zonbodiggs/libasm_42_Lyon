@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 12:27:46 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 15:04:46 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:02:54 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	list_push_front_launcher(void)
 	t_test	*testlist;
 
 	testlist = NULL;
+	printf("%sLIST PUSH FRONT:%s\n", BLUE, RESET);
 	load_test(&testlist, "Basic test", &list_push_front_basic_test, false);
 	load_test(&testlist, "NULL test", &list_push_front_null_test, false);
 	load_test(&testlist, "One element test",

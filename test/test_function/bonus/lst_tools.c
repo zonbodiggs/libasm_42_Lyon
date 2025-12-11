@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 10:13:15 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 15:59:47 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:02:01 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ void	free_list(t_list **list)
 	while (*list)
 	{
 		tmp = (*list)->next;
+		if ((*list)->data)
+			free((*list)->data);
 		free(*list);
 		*list = tmp;
-		// printf("yeah i'm free now\n");
 	}
 	list = NULL;
 }

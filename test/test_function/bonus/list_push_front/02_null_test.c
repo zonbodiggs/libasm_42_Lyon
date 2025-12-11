@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 15:00:58 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 15:03:30 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:22:45 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	list_push_front_null_test(void)
 {
-	return (-1);
+	ft_list_push_front(NULL, NULL);
+	return (0);
 }

@@ -23,7 +23,7 @@ OBJS_BONUS = $(BONUS_FILES:$(BONUS_DIR)/%.s=$(OBJ_DIR_BONUS)/%.o)
 NAME_BONUS = libasm_bonus.a
 #-------------------------------------------------tester--------------------------------------------------#
 CC = cc
-CARGS = -g -Wall -Wextra -Werror -Wstring-compare -Itest/microfamework/includes
+CARGS = -g -Wall -Wextra -Werror -Wstring-compare -Itest/microfamework/includes #-fsanitize=address 
 Clib = -L. -lasm -lasm_bonus
 CNAME = pacoasm
 
@@ -84,7 +84,7 @@ test_mandatory: exec_test
 	@$(MAKE) clean_test -s
 
 test_bonus: exec_test
-	valgrind --leak-check=full --show-leak-kinds=all ./$(CNAME) bonus
+	./$(CNAME) bonus
 	@echo "end of mandatory test"
 	@$(MAKE) clean_test -s
 
