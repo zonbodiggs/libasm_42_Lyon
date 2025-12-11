@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:29:11 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 15:32:53 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 15:05:16 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	launch_mandatory_test(void)
 	printf("****                  MANDATORY                  ****\n");
 	printf("*****************************************************\n");
 	printf("%s", RESET);
-	read_launcher();
-	strcmp_launcher();
-	strcpy_launcher();
-	strdup_launcher();
 	strlen_launcher();
+	strcpy_launcher();
+	strcmp_launcher();
 	write_launcher();
+	read_launcher();
+	strdup_launcher();
 	return (0);
 }
 
@@ -34,6 +34,9 @@ void	launch_bonus_test(void)
 	printf("****                    BONUS                    ****\n");
 	printf("*****************************************************\n");
 	printf("%s", RESET);
+	list_push_front_launcher();
+	list_size_launcher();
+	list_sort_launcher();
 }
 
 int	main(int ac, char **av)
@@ -55,7 +58,7 @@ int	main(int ac, char **av)
 	{
 		launch_mandatory_test();
 		printf("%s", YELLOW);
-		printf("%s*****************************************************%s\n");
+		printf("*****************************************************\n");
 		printf("%s", RESET);
 		launch_bonus_test();
 	}

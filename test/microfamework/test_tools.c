@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_tools.c                                        :+:      :+:    :+:   */
+/*   test_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:42:41 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 09:44:37 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 12:04:10 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ size_t	lst_size(t_test *testlist)
 	return (len);
 }
 
-void	free_list(t_test **testlist)
+void	free_test_list(t_test **testlist)
 {
 	t_test	*tmp;
 

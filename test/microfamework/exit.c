@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:44:47 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 10:26:25 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 12:06:23 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	exit_error(t_test *testlist)
 {
-	free_list(&testlist);
+	free_test_list(&testlist);
 	exit(-1);
 }
 

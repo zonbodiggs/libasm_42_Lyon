@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 12:12:32 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 13:16:53 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 11:58:01 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*charge_function(ssize_t(*function)(int fd, void *buff
 	int			fd;
 	static char	*buff;
 
-	fd = open("test/test_function/read/test.txt", O_RDONLY);
+	fd = open("test/test_function/mandatory/read/test.txt", O_RDONLY);
 	if (fd == -1)
 		return (printf("There is no fd\n"), NULL);
 	*size = (*function)(fd, buff, sizeof(buff) - 1);
@@ -34,7 +34,8 @@ static void	create_file(void)
 {
 	int		fd;
 
-	fd = open("test/test_function/read/test.txt", O_TRUNC | O_CREAT | O_WRONLY,
+	fd = open("test/test_function/mandatory/read/test.txt",
+			O_TRUNC | O_CREAT | O_WRONLY,
 			0644);
 	if (fd == -1)
 	{

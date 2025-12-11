@@ -3,17 +3,28 @@ ASM = nasm
 ARGS = -f
 FTM = elf64 -g -F dwarf
 OPT = -g
-NAME = libasm.a
-#---------------------------------------------------------------------------------------------------------#
-SRCS_DIR = src
+
+#------------------------------------------------mandatory------------------------------------------------#
+SRCS_DIR = libasm/src
 SRCS = $(shell find $(SRCS_DIR) -name "*.s")
 
 OBJ_DIR = .obj
 OBJS = $(SRCS:$(SRCS_DIR)/%.s=$(OBJ_DIR)/%.o)
-#---------------------------------------------------------------------------------------------------------#
+
+NAME = libasm.a
+
+#--------------------------------------------------bonus--------------------------------------------------#
+BONUS_DIR = libasm/bonus
+BONUS_FILES = $(shell find $(BONUS_DIR) -name "*.s")
+
+OBJ_DIR_BONUS = .obj_bonus
+OBJS_BONUS = $(BONUS_FILES:$(BONUS_DIR)/%.s=$(OBJ_DIR_BONUS)/%.o)
+
+NAME_BONUS = libasm_bonus.a
+#-------------------------------------------------tester--------------------------------------------------#
 CC = cc
 CARGS = -g -Wall -Wextra -Werror -Wstring-compare -Itest/microfamework/includes
-Clib = -L. -lasm
+Clib = -L. -lasm -lasm_bonus
 CNAME = pacoasm
 
 CSRCS_DIR = test
@@ -23,8 +34,8 @@ COBJDIR = .cobj
 COBJS = $(CSRCS:$(CSRCS_DIR)/%.c=$(COBJDIR)/%.o)
 
 HEADER = $(shell find $(CSRCS_DIR) -name "*.h")
-#---------------------------------------------------------------------------------------------------------#
 
+#---------------------------------------------------------------------------------------------------------#
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -38,6 +49,19 @@ $(OBJ_DIR)/%.o: $(SRCS_DIR)/%.s
 	fi
 	$(ASM) $(ARGS) $(FTM)  $< -o $@
 
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJS_BONUS)
+	@ar rcs $(NAME_BONUS) $(OBJS_BONUS)
+	ranlib $(NAME_BONUS)
+
+$(OBJ_DIR_BONUS)/%.o: $(BONUS_DIR)/%.s
+	@if [ ! -d "$(OBJ_DIR_BONUS)" ]; then \
+		mkdir -p $(@D); \
+		echo "creating .obj_bonus dir"; \
+	fi
+	$(ASM) $(ARGS) $(FTM)  $< -o $@
+
 call: $(CNAME)
 
 $(CNAME): $(COBJS) $(NAME)
@@ -48,10 +72,9 @@ $(COBJDIR)/%.o: $(CSRCS_DIR)/%.c $(HEADER)
 	$(CC) $(CARGS) -c $< -o $@
 
 exec_test: 
-	@if [ ! "$(NAME)" ]; then \
-		echo "compile .s files"; \
-		$(MAKE) all; \
-	fi
+	$(MAKE) all
+	$(MAKE) bonus;
+
 	@echo "compile .c files"
 	@$(MAKE) call -s
 
@@ -80,13 +103,15 @@ clean_test:
 
 clean: clean_test
 	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR_BONUS)
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(NAME_BONUS)
 	
 
 re: fclean
 	$(MAKE) all
 
-.PHONY: all clean fclean re test_mandatory test_bonus test_all test exec_test clean_test
+.PHONY: all bonus clean fclean re test_mandatory test_bonus test_all test exec_test clean_test
 #---------------------------------------------------------------------------------------------------------#

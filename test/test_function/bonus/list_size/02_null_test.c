@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   02_NULL_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 09:54:21 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 12:04:14 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/11 11:41:42 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/11 12:00:44 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#include "test_libasm.h"
 
-# include "launcher.h"
+int	list_size_null_test(void)
+{
+	t_list	*first_list;
 
-void		lstadd_back(t_test **testlist, t_test *new);
-size_t		lst_size(t_test *testlist);
-void		free_test_list(t_test **testlist);
-void		free_one_element(t_test **testlist);
-
-#endif
+	first_list = NULL;
+	if (ft_list_size(first_list) == list_size(first_list))
+		return (0);
+	return (-1);
+}

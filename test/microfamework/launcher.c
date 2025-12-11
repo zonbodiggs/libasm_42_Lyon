@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:32:07 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 14:23:53 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 12:04:22 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	child_process(t_test *testlist)
 	int	exit_code;
 
 	exit_code = ((*testlist).function)();
-	free_list(&testlist);
+	free_test_list(&testlist);
 	exit(exit_code);
 }
 

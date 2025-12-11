@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 12:10:34 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 12:42:16 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 11:08:11 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*charge_function(
 	int			fd;
 	const char	*str;
 
-	fd = open("test/test_function/write/test.txt",
+	fd = open("test/test_function/mandatory/write/test.txt",
 			O_TRUNC | O_CREAT | O_WRONLY, 0644);
 	str = NULL;
 	if (fd == -1)
@@ -43,7 +43,7 @@ int	write_null_buf_test(void)
 	size_real = 0;
 	buff_real = charge_function(&write, &size_real);
 	buff_assembly = charge_function(&ft_write, &size_assembly);
-	remove("test/test_function/write/test.txt");
+	remove("test/test_function/mandatory/write/test.txt");
 	if (!buff_assembly || !buff_real)
 		return (-1);
 	if (strcmp(buff_real, buff_assembly) == 0 && size_real == size_assembly)

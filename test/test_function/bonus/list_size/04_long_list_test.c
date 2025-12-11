@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   04_long_list_text.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 09:54:21 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 12:04:14 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/11 09:55:19 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/11 12:21:26 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#include "test_libasm.h"
 
-# include "launcher.h"
+static void	init_list(t_list **list, int size)
+{
+	int		i;
 
-void		lstadd_back(t_test **testlist, t_test *new);
-size_t		lst_size(t_test *testlist);
-void		free_test_list(t_test **testlist);
-void		free_one_element(t_test **testlist);
+	i = 0;
+	while (i < size)
+	{
+		lst_add_back(list, lst_new(NULL));
+		i++;
+	}
+	return ;
+}
 
-#endif
+int	list_size_long_list_test(void)
+{
+	t_list	*list;
+
+	list = NULL;
+	init_list(&list, 65535);
+	if (ft_list_size(list) == list_size(list))
+		return (free_list(&list), 0);
+	return (free_list(&list), -1);
+}

@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:53:45 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/10 15:26:47 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 15:00:13 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define TEST_LIBASM_H
 
 # include "launcher.h"
+# include "libasm.h"
 
 /*************************test mandatory*************************/
 				/*********test for strlen*********/
@@ -67,6 +68,38 @@ int		write_wrond_fd_test(void);
 int		write_null_buf_test(void);
 int		write_bigger_string_test(void);
 
-/*************************test mandatory*************************/
+/*************************test bonus*************************/
+				/*********test for atoi_base*********/
+int		atoi_base_launcher(void);
+
+				/*********test for list_push_front*********/
+int		list_push_front_launcher(void);
+int		list_push_front_basic_test(void);
+int		list_push_front_null_test(void);
+int		list_push_front_one_element_test(void);
+int		list_push_front_long_list_test(void);
+
+				/*********test for list_size*********/
+int		list_size_launcher(void);
+int		list_size_basic_test(void);
+int		list_size_null_test(void);
+int		list_size_one_element_test(void);
+int		list_size_long_list_test(void);
+
+				/*********test for list_sort*********/
+int		list_sort_launcher(void);
+int		list_sort_basic_test(void);
+int		list_sort_null_test(void);
+int		list_sort_one_element_test(void);
+int		list_sort_long_list_test(void);
+
+				/*********test for list_remove_if*********/
+int		list_remove_if_launcher(void);
+
+				/*********list tools*********/
+void	lst_add_back(t_list **testlist, t_list *new);
+t_list	*lst_new(void *data);
+int		list_size(t_list *begin_list);
+void	free_list(t_list **list);
 
 #endif

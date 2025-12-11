@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   03_one_element_test.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 09:54:21 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 12:04:14 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/11 12:48:07 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/11 12:50:00 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#include "test_libasm.h"
 
-# include "launcher.h"
-
-void		lstadd_back(t_test **testlist, t_test *new);
-size_t		lst_size(t_test *testlist);
-void		free_test_list(t_test **testlist);
-void		free_one_element(t_test **testlist);
-
-#endif
+int	list_sort_one_element_test(void)
+{
+	return (-1);
+}
