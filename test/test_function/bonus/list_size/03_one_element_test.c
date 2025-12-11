@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 09:54:37 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 12:07:49 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 15:17:44 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	list_size_one_element_test(void)
 {
-	t_list	*first_list;
+	t_list	*list;
 
-	first_list = NULL;
-	lst_add_back(&first_list, lst_new(NULL));
-	if (ft_list_size(first_list) == list_size(first_list))
-		return (0);
-	return (-1);
+	list = NULL;
+	lst_add_back(&list, lst_new(NULL));
+	if (ft_list_size(list) == list_size(list))
+		return (free_list(&list), 0);
+	return (free_list(&list),-1);
 }

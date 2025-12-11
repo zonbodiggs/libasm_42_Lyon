@@ -1,6 +1,7 @@
 *.o
 .obj
+.obj_bonus
 .cobj
 pacoasm
-libasm.a
+*.a
 .vscode

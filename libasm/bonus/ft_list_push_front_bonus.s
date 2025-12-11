@@ -12,13 +12,14 @@ extern malloc
 %define NULL 0
 
 section .bss
-	data : resq 1
-	next : resq 1
-	head : resq 1
+	data : resq 8
+	next : resq 8
+	head : resq 8
 
 section .text
 	ft_list_push_front:
 		push rbx
+		push rdi
 
 		test rdi, rdi					; test if t_list **begin_list is NULL
 		JZ _exit
@@ -31,14 +32,19 @@ section .text
 
 		mov [data], rsi					; add void *data passed in parameter to data asm to save it
 
-		mov rdi, 8						; arg of malloc 8 bits
+		mov rdi, 16						; arg of malloc 8 bits
 		call malloc						; malloc one list
 
-		mov rbx, rax					; add result of malloc (*new) on rax
-		mov byte [rbx], data			; add data on new->next
-		mov byte [rbx + 8], head		; set new->next to head of **list
+		test rax, rax
+		JZ _exit
 
-		mov [head], rbx					; set the new head of list to new list allocate
+		mov [rax + 0], rsi				; add void *data to data pointed by *new 
+		mov rbx, [head] 				; add old head to rbx register
+		mov [rax + 8], rbx				; set the next of t_list *new to old head 		
+
+		pop rdi
+		mov [rdi], rax					; set the new head of list to new list allocate
 	_exit:
 		pop rbx
+		
 		ret
