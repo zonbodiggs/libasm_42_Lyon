@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 15:01:19 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 17:33:05 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:10:54 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	list_push_front_one_element_test(void)
 	*value = 1;
 	ft_list_push_front(&list, value);
 	value_to_check = (int *)list->data;
-	if (list_size(list) == 1 &&  *value_to_check == 1)
+	if (list_size(list) == 1 && *value_to_check == 1)
 		return (free_list(&list), 0);
 	return (free_list(&list), -1);
 }
