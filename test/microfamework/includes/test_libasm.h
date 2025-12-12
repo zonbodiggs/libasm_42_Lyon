@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:53:45 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 15:00:13 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/12 08:40:09 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,9 @@ int		list_sort_long_list_test(void);
 
 				/*********test for list_remove_if*********/
 int		list_remove_if_launcher(void);
-
-				/*********list tools*********/
-void	lst_add_back(t_list **testlist, t_list *new);
-t_list	*lst_new(void *data);
-int		list_size(t_list *begin_list);
-void	free_list(t_list **list);
+int		list_remove_if_basic_test(void);
+int		list_remove_if_null_test(void);
+int		list_remove_if_one_element_test(void);
+int		list_remove_if_long_list_test(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:53:05 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 12:20:59 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/12 08:43:08 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,9 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h> // TO DO delete this include
-
-typedef struct s_list
-{
-	void			*data;
-	struct s_list	*next;
-}	t_list;
+# include <stdio.h>
+# include <stdbool.h>
+# include "lst_tools.h"
 
 /***************************mandatory***************************/
 extern ssize_t		ft_read(int fd, void *buf, size_t count);

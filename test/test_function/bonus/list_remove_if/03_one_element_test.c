@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   03_one_element_test.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 12:27:50 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/12 08:41:04 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/12 08:37:57 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/12 08:41:46 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
-int	list_remove_if_launcher(void)
+int		list_remove_if_one_element_test(void)
 {
-	return (0);
+	return (-1);
 }
