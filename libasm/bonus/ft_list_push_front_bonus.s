@@ -12,8 +12,8 @@ extern malloc
 %define NULL 0
 
 section .bss
-	next : resq 8
-	head : resq 8
+	next : resq 1
+	head : resq 1
 
 section .text
 	ft_list_push_front:

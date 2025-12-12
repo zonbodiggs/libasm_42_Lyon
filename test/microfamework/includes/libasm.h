@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:53:05 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/12 08:43:08 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:14:20 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ extern ssize_t		ft_read(int fd, void *buf, size_t count);
 extern int			ft_strcmp(const char *s1, const char *s2);
 extern char			*ft_strcpy(char *dest, const char *src);
 extern char			*ft_strdup(const char *s);
-extern size_t		ft_strlen(const char *s);
+extern size_t		ft_strlen(const char *s); 
 extern ssize_t		ft_write(int fd, const void *buf, size_t count);
 
 /****************************bonus*****************************/
