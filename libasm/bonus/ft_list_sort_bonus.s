@@ -1,15 +1,3 @@
-; void ft_list_sort(t_list **begin_list, int (*cmp)());
-; null check of t_list**begin_list
-; null check of in (*cmp)() function 
-; set up t_list *begin_list (copy it in rbx)
-; set up t_list *begin_list->next (copy it in next global variable)
-; execute principal loop
-
-
-; cmp(list->next->data, list->data) list->next->data - list->data
-; list->next->data > list->data => +1
-; list->next->data < list->data => -1
-
 bits 64
 
 global ft_list_sort
@@ -29,60 +17,48 @@ section .text
 		JZ _exit
 
 		mov rdi, [rdi]			; transform **begin_list into *begin_list into rbx
-		mov rbx, [rdi + 8]		; copy *begin_list->next in rbx
+		mov rbx, rdi			; copy *begin_list in rbx
 		
 		mov [function], rsi		; copy int (cmp)() function into function
 
 	_sort_loop:
-		test rdi, rdi			; NULL check of t_list **list
+		test rdi, rdi
 		JZ _exit
 
-		mov rdi, rbx			; shift t_list *list (list = list->next)
-		mov rbx, [rdi + 8]		; reset list->next
+		mov rbx, [rbx + 8]		; increase begin_cmp_list (begin_cmp_list = begin_cmp_list->next)
 
-		mov r12, rbx			; copy list->next into next
-		JMP _check_loop			; execute second loop
+		test rbx, rbx			; test if *begin_cmp_list = NULL
+		JZ _increase_head		; if (cmp_list == NULL) jump _increase_head label
+		JNZ _calling_cmp		; else if (cmp_list != NULL)  jump _calling_cmp label
 
-		JMP	_sort_loop
-
-	_check_loop:
-		test rbx, rbx
-		JZ _exit 
-
-		mov rsi, [rdi]			; copy list->data into rsi
-
-		push rdi
-		and rsp, -16
-		mov rdi, [r12]			; copy list->next->data into rdi 
-		call [function]			; call int (cmp)() function
-		pop rdi
-
-		cmp rax, 0				; check if value1 >/< value 2
-		JG _swap				; if rax negative swap rdi and rbp
-
-		mov r12, [r12 + 8]		; increase *list pointed by rbp
-
-		test r12, r12			; null check of rbp
-		JZ _sort_loop			; break second loop
-
-		JMP _check_loop
-
-	_swap:						; TO DO change swap
-		mov rsi, [r12]			; *tmpa = *a
-		mov r8, [rdi]
-
-		mov r12, r8				; *a = *tmp
-		mov rdi, rsi			; *b = *a
-
-		; mov rsi, [rdi + 8]
-		; mov [r12 + 8], rsi
-
-		; mov [rdi + 8], rbx
-
-		; mov r12, rbx
-
-		JMP _check_loop			; recall the second loop
+		JMP _sort_loop
 	
+	_increase_head:
+		mov rdi, [rdi + 8]		; (*begin_list) = (*begin_list)->next;
+		mov rbx, rdi			; cmp_list = (*begin_list);
+		jmp _sort_loop
+
+	_swap:
+		mov r12, [rdi]			; copy beginlist->data into r12
+		mov r8, [rbx]			; copy begin_cmp_list->data into r8
+
+		mov [rdi], r8			; copy r8 into beginlist->data
+		mov [rbx], r12			; copy r12 into begin_cmp_list->data
+
+		jmp _sort_loop
+
+	_calling_cmp:
+		mov r12, [rdi]			; save value of (*begin_list)->data
+		push rdi				; push rdi to stack
+		mov rdi, r12			; copy (*begin_list)->data into rdi first arg
+		mov rsi, [rbx]			; copy cmp_list->data into rsi second arg
+		call [function]			; calling cmp function
+		pop rdi					; restore rdi to stack
+
+		cmp eax, 0				; check comparaison of value1 and value2 use eax because of non signe value
+		JG _swap				; jump to swap if greater value1 > value2
+		jmp _sort_loop			; return to sort loop
+
 	_exit:
 		pop r12
 		pop rbx					; epilogue restore rbx

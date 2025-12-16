@@ -9,34 +9,33 @@ section .text
 		mov rcx, 0							; init loop register
 
 		_loop:
-			cmp byte [rdi + rcx], NULL		; exit if s1[rcx] == '\0'
-			JZ _exit
-
-			cmp byte [rsi + rcx], NULL		; exit if s2[rcx] == '\0'
-			JZ _exit
-	
 			mov byte al, [rdi + rcx]
-			cmp byte al, [rsi + rcx]		; compare s1[rcx] && s2[rcx]
-			JNZ _exit						; jump to exit if not equal
+			mov byte dl, [rsi + rcx]
+
+			cmp al, dl
+			JNE _exit
+
+			test al, al						; compare s1[rcx] && s2[rcx]
+			JE _exit						; jump to exit if not equal
 
 			inc rcx							; increase loop register
 			jmp _loop						; recall the loop
 
 		_exit:
-			movzx rax, byte [rdi + rcx]		; put s1[rcx] in return register
-			cmp rax, NULL
+			movzx eax, al					; put s1[rcx] in return register
+			movzx edx, dl
+			cmp al, dl
+			JL _inferior
 			JG _superior
-			movzx rbx, byte [rsi + rcx]
-			cmp rbx, NULL
-			JG _inferior
-			sub rax, rbx					; sub rax with s2[rcx]
+
+			sub eax, edx					; sub rax with s2[rcx]
 			ret								; return rax
 
 		_inferior:
-			mov rax, -1
+			mov eax, -1
 			ret
 
 		_superior:
-			mov rax, 1
+			mov eax, 1
 			ret
 

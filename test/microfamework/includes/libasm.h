@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:53:05 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/12 12:14:20 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/16 15:36:13 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 # include <aio.h>
 # include <string.h>
-# include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
-# include <stdbool.h>
 # include "lst_tools.h"
 
 /***************************mandatory***************************/
