@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 08:24:25 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/16 15:37:52 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:26:23 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,21 @@ void	list_sort(t_list **begin_list, int (*cmp)())
 
 bool	is_list_sort(t_list *begin_list)
 {
-	t_list	*tmp;
-	
+	t_list		*tmp;
+	int			i;
+
 	tmp = begin_list;
-	while(tmp)
+	i = 0;
+	while (tmp)
 	{
 		if (tmp && tmp->next && *(int *)tmp->data > *(int *)tmp->next->data)
+		{
+			printf("value a is: %d\nvalut b is: %d\nat pos: %d\n",
+				*(int *)tmp->data, *(int *)tmp->next->data, i);
 			return (false);
-	tmp = tmp->next;
+		}
+		i++;
+		tmp = tmp->next;
 	}
 	return (true);
 }

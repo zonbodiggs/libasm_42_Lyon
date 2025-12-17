@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 12:27:35 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/11 12:52:26 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:28:27 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int	list_sort_launcher(void)
 	load_test(&testlist, "One element test",
 		&list_sort_one_element_test, false);
 	load_test(&testlist, "Long list test", &list_sort_long_list_test, false);
+	load_test(&testlist, "Already sort test",
+		&list_sort_long_already_sort, false);
 	return (launch_test(testlist));
 }

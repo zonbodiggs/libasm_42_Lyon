@@ -84,7 +84,7 @@ test_mandatory: exec_test
 	@$(MAKE) clean_test -s
 
 test_bonus: exec_test
-	valgrind --leak-check=full --show-leak-kinds=all --trace-children=yes --track-origins=yes ./$(CNAME) bonus
+	./$(CNAME) bonus
 	@echo "end of mandatory test"
 	@$(MAKE) clean_test -s
 

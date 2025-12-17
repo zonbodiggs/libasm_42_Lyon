@@ -6,13 +6,13 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 08:37:39 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/12 08:41:43 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:27:49 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
-int		list_remove_if_null_test(void)
+int	list_remove_if_null_test(void)
 {
 	return (-1);
 }

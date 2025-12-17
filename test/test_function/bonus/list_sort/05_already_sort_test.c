@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_one_element_test.c                              :+:      :+:    :+:   */
+/*   05_already_sort_test.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 12:48:07 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/17 10:30:15 by endoliam         ###   ########.fr       */
+/*   Created: 2025/12/16 16:52:20 by endoliam          #+#    #+#             */
+/*   Updated: 2025/12/17 10:31:04 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
-int	list_sort_one_element_test(void)
+static void	init_list(t_list **list, int size)
 {
-	t_list	*list;
-	t_list	*tofree;
+	int		i;
 	int		*value;
 
+	i = 0;
+	while (i < size)
+	{
+		value = malloc(2 * sizeof(int));
+		*value = i + 1;
+		lst_add_back(list, lst_new(value));
+		i++;
+	}
+	return ;
+}
+
+int	list_sort_long_already_sort(void)
+{
+	t_list		*list;
+	t_list		*tofree;
+
 	list = NULL;
-	value = malloc(1 * sizeof(int));
-	*value = 1;
-	ft_list_push_front(&list, value);
+	init_list(&list, 50);
 	tofree = list;
-	ft_list_sort(&list, &ft_strcmp);
-	return (free_list(&tofree), 0);
+	ft_list_sort(&list, ft_strcmp);
+	if (is_list_sort(tofree))
+		return (free_list(&tofree), 0);
+	return (free_list(&tofree), -1);
 }

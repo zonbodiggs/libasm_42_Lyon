@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 12:47:27 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/16 15:50:38 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:29:58 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,38 @@ static void	init_list(t_list **list, int size)
 	return ;
 }
 
-// static int	cmp(void *a , void *b)
-// {
-// 	return (*(int *)a - *(int *)b);
-// }
+static int	compare(void *a, void *b)
+{
+	return (*(int *)a - *(int *)b);
+}
+
+static t_list	*create_and_execute(int (*cmp)(), int size)
+{
+	t_list		*lst;
+	t_list		*tmp;
+
+	lst = NULL;
+	init_list(&lst, size);
+	tmp = lst;
+	ft_list_sort(&tmp, cmp);
+	return (lst);
+}
 
 int	list_sort_basic_test(void)
 {
 	t_list		*list;
-	t_list		*tmp;
+	t_list		*list1;
+	t_list		*list2;
+	t_list		*list3;
 
-	list = NULL;
-	init_list(&list, 15);
-	tmp = list;
-	ft_list_sort(&list, &ft_strcmp);
-	if (is_list_sort(list))
-		return(free_list(&list), 0);
-	while(tmp) {
-		printf("value of data is: %d\n", *(int *)tmp->data);
-		tmp = tmp->next;
-	}
-	return (free_list(&list), -1);
+	list = create_and_execute(&compare, 15);
+	list1 = create_and_execute(&ft_strcmp, 20);
+	list2 = create_and_execute(&strcmp, 25);
+	list3 = create_and_execute(&compare, 25);
+	if (is_list_sort(list) && is_list_sort(list1)
+		&& is_list_sort(list2) && is_list_sort(list3))
+		return (free_list(&list), free_list(&list1)
+			, free_list(&list2), free_list(&list3), 0);
+	return (free_list(&list), free_list(&list1)
+		, free_list(&list2), free_list(&list3), -1);
 }
