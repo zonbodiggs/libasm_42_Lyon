@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 08:24:25 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/17 11:06:36 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/17 15:01:57 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,9 @@ bool	is_list_sort(t_list *begin_list, int (*cmp)())
 	return (true);
 }
 
-void	ft_list_remove_if(t_list **begin_list, void *data_ref,
+void	list_remove_if(t_list **begin_list, void *data_ref,
 			int (*cmp)(), void (*free_fct)(void *))
 {
-	t_list		*tmp;
-
-	tmp = NULL;
 	if (!begin_list || !*begin_list
 		|| !data_ref || !cmp || !free_fct)
 		return ;
@@ -78,9 +75,8 @@ void	ft_list_remove_if(t_list **begin_list, void *data_ref,
 	{
 		if ((*begin_list)->data && cmp((*begin_list)->data, data_ref) == 0)
 		{
-			tmp = (*begin_list)->next;
-			free_fct(*begin_list);
-			*begin_list = tmp;
+			free_fct((*begin_list)->data);
+			(*begin_list)->data = NULL;
 		}
 		*begin_list = (*begin_list)->next;
 	}
@@ -93,9 +89,14 @@ bool	is_lst_has(t_list *begin_list, void *data_ref, int (*cmp)())
 	tmp = begin_list;
 	while (tmp)
 	{
-		if (cmp(tmp->data, data_ref) == 0)
-			return (false);
+		if (tmp->data && cmp(tmp->data, data_ref) == 0)
+		{
+			printf("ur such an asshole\n");
+			return (true);
+		}
 		tmp = tmp->next;
 	}
-	return (true);
+	return (false);
 }
+
+//0x7fffffffdc10 || 0xffffdc10

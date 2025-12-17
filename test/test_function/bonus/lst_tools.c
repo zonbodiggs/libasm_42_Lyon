@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 10:13:15 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/17 10:25:10 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/17 12:34:41 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void	print_list(t_list **list)
 	tmp = *list;
 	while (tmp)
 	{
-		printf("value is: %d\n", *(int *)tmp->data);
+		if (tmp->data)
+			printf("value is: %d\n", *(int *)tmp->data);
 		tmp = tmp->next;
 	}
 }

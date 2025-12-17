@@ -50,7 +50,6 @@ section .text
 		mov [rcx], r8			; copy r8 into tmp->data
 		mov [rbx], r12			; copy r12 into begin_cmp_list->data
 
-		; mov rbx, rcx			; cmp_list = *(begin_list);
 		jmp _sort_loop
 
 	_calling_cmp:
@@ -58,11 +57,9 @@ section .text
 		mov r12, [rcx]			; save value of tmp->data
 		sub rsp, 8
 		push rdi				; push rdi to stack
-		push rcx				; push rcx to stack
 		mov rdi, r12			; copy tmp->data into rdi first arg
 		mov rsi, [rbx]			; copy cmp_list->data into rsi second arg
 		call [function]			; calling cmp function
-		pop rcx					; restore rcx to stack
 		pop rdi					; restore rdi to stack
 		add rsp, 8
 

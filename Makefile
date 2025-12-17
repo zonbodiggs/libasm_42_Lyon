@@ -71,7 +71,7 @@ $(COBJDIR)/%.o: $(CSRCS_DIR)/%.c $(HEADER)
 	@mkdir -p $(@D) 
 	$(CC) $(CARGS) -c $< -o $@
 
-exec_test: 
+exec_test: fclean
 	$(MAKE) all
 	$(MAKE) bonus;
 
