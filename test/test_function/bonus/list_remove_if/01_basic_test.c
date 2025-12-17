@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 08:37:16 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/17 15:04:11 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/17 15:17:07 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ static void	init_list(t_list **list, int size)
 	while (i < size)
 	{
 		value = malloc(2 * sizeof(int));
-		*value = 1;
+		if (i % 2 == 0)
+			*value = 1;
+		else
+			*value = i + 1;
 		ft_list_push_front(list, value);
 		i++;
 	}
@@ -51,7 +54,7 @@ int	list_remove_if_basic_test(void)
 {
 	int			*data_ref;
 
-	data_ref = malloc(1 * sizeof(int));
+	data_ref = malloc(2 * sizeof(int));
 	*data_ref = 1;
 	if (create_and_execute(&compare, data_ref, 15))
 		return (0);
