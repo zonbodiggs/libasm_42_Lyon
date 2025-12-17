@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 12:48:24 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/17 10:30:49 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:57:09 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ static void	init_list(t_list **list, int size)
 	return ;
 }
 
-static int	compare(void *a, void *b)
-{
-	return (*(int *)a - *(int *)b);
-}
-
 int	list_sort_long_list_test(void)
 {
 	t_list		*list;
@@ -44,7 +39,7 @@ int	list_sort_long_list_test(void)
 	init_list(&list, 65534);
 	tofree = list;
 	ft_list_sort(&list, &compare);
-	if (is_list_sort(tofree))
+	if (is_list_sort(tofree, &compare))
 		return (free_list(&tofree), 0);
 	return (free_list(&tofree), -1);
 }

@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:52:20 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/17 10:31:04 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:54:32 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	list_sort_long_already_sort(void)
 	list = NULL;
 	init_list(&list, 50);
 	tofree = list;
-	ft_list_sort(&list, ft_strcmp);
-	if (is_list_sort(tofree))
+	ft_list_sort(&list, &ft_strcmp);
+	if (is_list_sort(tofree, &ft_strcmp))
 		return (free_list(&tofree), 0);
 	return (free_list(&tofree), -1);
 }

@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 12:47:27 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/17 10:29:58 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:56:12 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ static void	init_list(t_list **list, int size)
 		i++;
 	}
 	return ;
-}
-
-static int	compare(void *a, void *b)
-{
-	return (*(int *)a - *(int *)b);
 }
 
 static t_list	*create_and_execute(int (*cmp)(), int size)
@@ -58,8 +53,8 @@ int	list_sort_basic_test(void)
 	list1 = create_and_execute(&ft_strcmp, 20);
 	list2 = create_and_execute(&strcmp, 25);
 	list3 = create_and_execute(&compare, 25);
-	if (is_list_sort(list) && is_list_sort(list1)
-		&& is_list_sort(list2) && is_list_sort(list3))
+	if (is_list_sort(list, &compare) && is_list_sort(list1, &ft_strcmp)
+		&& is_list_sort(list2, &strcmp) && is_list_sort(list3, &compare))
 		return (free_list(&list), free_list(&list1)
 			, free_list(&list2), free_list(&list3), 0);
 	return (free_list(&list), free_list(&list1)
