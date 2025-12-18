@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 08:37:57 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/18 08:13:07 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/18 08:15:56 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool	create_and_execute(int (*cmp)(), void *data_ref)
 {
 	t_list		*lst;
 	t_list		*tmp;
-	int 		*data;
+	int			*data;
 
 	lst = NULL;
 	tmp = lst;

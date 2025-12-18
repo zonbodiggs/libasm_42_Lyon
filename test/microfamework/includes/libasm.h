@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:53:05 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/17 10:22:48 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:16:17 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,8 @@ extern int			ft_list_size(t_list *begin_list);
 extern void			ft_list_sort(t_list **begin_list, int (*cmp)());
 extern void			ft_list_remove_if(t_list **begin_list, void *data_ref,
 						int (*cmp)(), void (*free_fct)(void *));
+
+				/*********real atoi base*********/
+int					atoi_base(char *str, char *base);
 
 #endif

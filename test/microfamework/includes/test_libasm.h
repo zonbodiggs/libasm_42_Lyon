@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:53:45 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/16 16:53:20 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/18 09:09:24 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ int		write_bigger_string_test(void);
 /*************************test bonus*************************/
 				/*********test for atoi_base*********/
 int		atoi_base_launcher(void);
+int		atoi_base_basic_test(void);
+int		atoi_base_null_test(void);
+int		atoi_base_one_element_test(void);
+int		atoi_base_bigger_str_test(void);
 
 				/*********test for list_push_front*********/
 int		list_push_front_launcher(void);

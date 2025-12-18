@@ -22,20 +22,20 @@ section .text
 			jmp _loop						; recall the loop
 
 		_exit:
-			movzx eax, al					; put s1[rcx] in return register
-			movzx edx, dl
+			movzx rax, al					; put s1[rcx] in return register
+			movzx rdx, dl
 			cmp al, dl
 			JL _inferior
 			JG _superior
 
-			sub eax, edx					; sub rax with s2[rcx]
+			sub rax, rdx					; sub rax with s2[rcx]
 			ret								; return rax
 
 		_inferior:
-			mov eax, -1
+			mov rax, -1
 			ret
 
 		_superior:
-			mov eax, 1
+			mov rax, 1
 			ret
 
