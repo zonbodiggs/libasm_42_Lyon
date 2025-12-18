@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 12:47:27 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/17 10:56:12 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/18 08:13:23 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ static t_list	*create_and_execute(int (*cmp)(), int size)
 	tmp = lst;
 	ft_list_sort(&tmp, cmp);
 	return (lst);
+}
+
+static int	compare(void *a, void *b)
+{
+	return (*(int *)a - *(int *)b);
 }
 
 int	list_sort_basic_test(void)

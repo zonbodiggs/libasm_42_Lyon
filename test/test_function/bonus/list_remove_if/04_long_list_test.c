@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 08:38:15 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/17 17:13:04 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/18 08:13:12 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ static void	init_list(t_list **list, int size)
 static void	free_fct(void *data_ptr_list)
 {
 	free (data_ptr_list);
+}
+
+static int	compare(void *a, void *b)
+{
+	return (*(int *)a - *(int *)b);
 }
 
 static bool	create_and_execute(int (*cmp)(), void *data_ref, int size)
