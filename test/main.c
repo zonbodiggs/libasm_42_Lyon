@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:29:11 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/18 16:08:01 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:27:30 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ void	launch_bonus_test(void)
 	printf("****                    BONUS                    ****\n");
 	printf("*****************************************************\n");
 	printf("%s", RESET);
-	list_push_front_launcher();
-	list_size_launcher();
-	list_sort_launcher();
-	list_remove_if_launcher();
+	// list_push_front_launcher();
+	// list_size_launcher();
+	// list_sort_launcher();
+	// list_remove_if_launcher();
 	atoi_base_launcher();
 }
 

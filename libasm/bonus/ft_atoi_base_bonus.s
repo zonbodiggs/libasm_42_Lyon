@@ -165,7 +165,9 @@ section .text
 	_exit:
 		mov rax, rbx						; cpy rbx (res) in rax
 		pop rbx								; restore rbx
-		; imul rax, [sign]					; TO DO rework sign 
+		movsx rcx, byte [sign]
+		imul rax, rcx						; TO DO rework sign 
+		mov byte [sign], 1
 		ret									; return rax
 	
 	_exit_error:
