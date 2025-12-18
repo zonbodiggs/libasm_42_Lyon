@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 08:20:41 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/18 16:11:28 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:52:05 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,6 @@ bool	check_base(char *base)
 	return (true);
 }
 
-bool	is_space(char c)
-{
-	if (c == 9 || c == 10 || c == 11 || c == 12 || c == 13 || c == 32)
-		return (true);
-	return (false);
-}
-
 int	fint_pos(char c, char *base)
 {
 	int		pos;
@@ -71,22 +64,12 @@ bool	is_sign(char c, int *sign)
 	return (false);
 }
 
-int	atoi_base(char *str, char *base)
+int	convert_str(char *str, char *base)
 {
 	int		res;
 	int		base_len;
-	int		sign;
 	int		pos;
 
-	if (!str || !base)
-		return (0);
-	if (!check_base(base))
-		return (0);
-	while (is_space(*str))
-		str++;
-	sign = 1;
-	if (is_sign(*str, &sign))
-		str++;
 	base_len = ft_strlen(base);
 	res = 0;
 	pos = 0;
@@ -99,5 +82,23 @@ int	atoi_base(char *str, char *base)
 		res += pos;
 		str++;
 	}
-	return (res * sign);
+	return (res);
+}
+
+int	atoi_base(char *str, char *base)
+{
+	int		sign;
+
+	if (!str || !base)
+		return (0);
+	if (!check_base(base))
+		return (0);
+	while (*str == 9 || *str == 10
+		|| *str == 11 || *str == 12
+		|| *str == 13 || *str == 32)
+		str++;
+	sign = 1;
+	if (is_sign(*str, &sign))
+		str++;
+	return (convert_str(str, base) * sign);
 }

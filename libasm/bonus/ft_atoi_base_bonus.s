@@ -143,8 +143,6 @@ section .text
 
 		mov r8, 0
 
-		JMP _find_pos_loop
-
 	_find_pos_loop:
 		mov byte dl, [rsi + r8]			; cpy base[r8] in dl register	
 		test dl, dl							; check null base[r8] 

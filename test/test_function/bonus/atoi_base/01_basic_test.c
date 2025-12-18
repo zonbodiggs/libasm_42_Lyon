@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 08:17:07 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/18 16:34:48 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:44:57 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	atoi_base_basic_test(void)
 		&& is_verif_good("00010001", "01")
 		&& is_verif_good("-11111111", "01")
 		&& is_verif_good("     +42a", "0123456789ab")
-		&& is_verif_good("-a7b4", "0123456789ab"))
+		&& is_verif_good("-a7b4", "0123456789ab")
+		&& is_verif_good("c42b4", "0123456789abc"))
 		return (0);
 	return (-1);
 }
