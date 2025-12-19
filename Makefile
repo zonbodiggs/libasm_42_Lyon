@@ -23,7 +23,7 @@ OBJS_BONUS = $(BONUS_FILES:$(BONUS_DIR)/%.s=$(OBJ_DIR_BONUS)/%.o)
 NAME_BONUS = libasm_bonus.a
 #-------------------------------------------------tester--------------------------------------------------#
 CC = cc
-CARGS = -g -Wall -Wextra -Werror -Wstring-compare -Itest/microfamework/includes
+CARGS = -g -Wall -Wextra -Werror -Wstring-compare -Itest/includes #-fsanitize=address 
 Clib = -L. -lasm -lasm_bonus
 CNAME = pacoasm
 

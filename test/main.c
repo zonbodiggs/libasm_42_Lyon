@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:29:11 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/19 09:38:59 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:38:59 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include "libasm.h"
 #include <time.h>
 
-int	char_library(char *library)
-{
-	// transform .a (static library) to .so (shared library in linux system)
-	// charge dynamique library with dlopen() function be carefull of error handling and use dlerror()  void *dlopen(const char *filename, int flag); 
-	// charge library descriptor send by dlopen and find his adress with dlsym() function be carefull of error handling and use dlerror()  void *dlsym(void *handle, const char *symbol);
-	// close library charged with dlopen int dlclose(void *handle); 
-}
+// int	char_library(char *library)
+// {
+// 	// transform .a (static library) to .so (shared library in linux system)
+// 	// charge dynamique library with dlopen() function be carefull of error handling and use dlerror()  void *dlopen(const char *filename, int flag); 
+// 	// charge library descriptor send by dlopen and find his adress with dlsym() function be carefull of error handling and use dlerror()  void *dlsym(void *handle, const char *symbol);
+// 	// close library charged with dlopen int dlclose(void *handle); 
+// }
 
 int	launch_mandatory_test(char *library)
 {

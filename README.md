@@ -16,6 +16,7 @@ Tests
 ==
 ⚠️ Write your own tests, It's a very essential part of programming. ⚠️
 ==
+### ⚠️ tester in build, i try to make a dynamique tester for your own libasm ⚠️
 This repository includes a simple tester in C to help you check libasm implementation.
 To run the tests, use the following command:
 ## test mandatory part
