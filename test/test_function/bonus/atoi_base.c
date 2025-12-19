@@ -6,13 +6,13 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 08:20:41 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/18 16:52:05 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/19 08:33:59 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_libasm.h"
 
-bool	check_base(char *base)
+static bool	check_base(char *base)
 {
 	int		i;
 	int		j;
@@ -38,7 +38,7 @@ bool	check_base(char *base)
 	return (true);
 }
 
-int	fint_pos(char c, char *base)
+static int	fint_pos(char c, char *base)
 {
 	int		pos;
 
@@ -52,7 +52,7 @@ int	fint_pos(char c, char *base)
 	return (-1);
 }
 
-bool	is_sign(char c, int *sign)
+static bool	is_sign(char c, int *sign)
 {
 	if (c == '+')
 		return (true);
@@ -64,7 +64,7 @@ bool	is_sign(char c, int *sign)
 	return (false);
 }
 
-int	convert_str(char *str, char *base)
+static int	convert_str(char *str, char *base)
 {
 	int		res;
 	int		base_len;

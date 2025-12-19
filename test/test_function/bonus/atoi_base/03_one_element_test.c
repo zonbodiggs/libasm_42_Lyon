@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 08:18:55 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/18 08:21:48 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/19 08:45:15 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int	atoi_base_one_element_test(void)
 {
+	if (atoi_base("1", "0") == ft_atoi_base("1", "0"))
+		return (0);
 	return (-1);
 }

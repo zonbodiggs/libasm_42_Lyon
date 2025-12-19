@@ -6,7 +6,7 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 08:17:07 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/18 16:44:57 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/19 08:34:30 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static bool	is_verif_good(char *str, char *base)
 {
-	// printf("atoi_base c is: %d\natoi_base assembly is: %d\n", atoi_base(str, base),ft_atoi_base(str, base));
 	if (atoi_base(str, base) == ft_atoi_base(str, base))
 		return (true);
 	return (false);
