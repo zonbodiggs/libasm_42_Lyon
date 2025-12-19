@@ -23,7 +23,7 @@ OBJS_BONUS = $(BONUS_FILES:$(BONUS_DIR)/%.s=$(OBJ_DIR_BONUS)/%.o)
 NAME_BONUS = libasm_bonus.a
 #-------------------------------------------------tester--------------------------------------------------#
 CC = cc
-CARGS = -g -Wall -Wextra -Werror -Wstring-compare -Itest/microfamework/includes #-fsanitize=address 
+CARGS = -g -Wall -Wextra -Werror -Wstring-compare -Itest/microfamework/includes
 Clib = -L. -lasm -lasm_bonus
 CNAME = pacoasm
 
@@ -79,17 +79,17 @@ exec_test: fclean
 	@$(MAKE) call -s
 
 test_mandatory: exec_test
-	./$(CNAME) mandatory
+	./$(CNAME) mandatory $(NAME)
 	@echo "end mandatory test"
 	@$(MAKE) clean_test -s
 
 test_bonus: exec_test
-	./$(CNAME) bonus
+	./$(CNAME) bonus $(NAME_BONUS)
 	@echo "end bonus test"
 	@$(MAKE) clean_test -s
 
 test_all: exec_test
-	./$(CNAME) all
+	./$(CNAME) all $(NAME) $(NAME_BONUS)
 	@echo "end test"
 	@$(MAKE) clean_test -s
 
