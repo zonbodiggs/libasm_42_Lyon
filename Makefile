@@ -71,15 +71,16 @@ $(COBJDIR)/%.o: $(CSRCS_DIR)/%.c $(HEADER)
 	@mkdir -p $(@D) 
 	$(CC) $(CARGS) -c $< -o $@
 
-exec_test: fclean
+exec_test:
 	$(MAKE) all
-	$(MAKE) bonus;
+	$(MAKE) bonus
+	$(MAKE) clean
 
 	@echo "compile .c files"
 	@$(MAKE) call -s
 
 test_mandatory: exec_test
-	./$(CNAME) mandatory $(NAME)
+	valgrind --leak-check=full ./$(CNAME) mandatory $(NAME)
 	@echo "end mandatory test"
 	@$(MAKE) clean_test -s
 

@@ -31,4 +31,3 @@ To run the tests, use the following command:
   ```
   make test_all
   ```
-

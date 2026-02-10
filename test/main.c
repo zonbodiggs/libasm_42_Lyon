@@ -6,26 +6,19 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:29:11 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/19 10:38:59 by endoliam         ###   ########.fr       */
+/*   Updated: 2025/12/19 14:27:40 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_libasm.h"
-#include "libasm.h"
-#include <time.h>
 
-// int	char_library(char *library)
-// {
-// 	// transform .a (static library) to .so (shared library in linux system)
-// 	// charge dynamique library with dlopen() function be carefull of error handling and use dlerror()  void *dlopen(const char *filename, int flag); 
-// 	// charge library descriptor send by dlopen and find his adress with dlsym() function be carefull of error handling and use dlerror()  void *dlsym(void *handle, const char *symbol);
-// 	// close library charged with dlopen int dlclose(void *handle); 
-// }
-
-int	launch_mandatory_test(char *library)
+int	launch_mandatory_test(char *static_library, char **env)
 {
-	if (strcmp(library, "libasm.a"))
-		return (1);
+	// if (strcmp(static_library, "libasm.a"))
+	// 	return (1);
+	// charge_library(static_library, env);
+	(void)static_library;
+	(void)env;
 	printf("%s", YELLOW);
 	printf("****                  MANDATORY                  ****\n");
 	printf("*****************************************************\n");
@@ -39,10 +32,13 @@ int	launch_mandatory_test(char *library)
 	return (0);
 }
 
-int	launch_bonus_test(char *library)
+int	launch_bonus_test(char *static_library, char **env)
 {
-	if (strcmp(library, "libasm_bonus.a"))
-		return (1);
+	// if (strcmp(static_library, "libasm_bonus.a"))
+	// 	return (1);
+	// charge_library(static_library, env);
+	(void)static_library;
+	(void)env;
 	printf("%s", YELLOW);
 	printf("****                    BONUS                    ****\n");
 	printf("*****************************************************\n");
@@ -55,7 +51,7 @@ int	launch_bonus_test(char *library)
 	return (0);
 }
 
-int	main(int ac, char **av)
+int	main(int ac, char **av, char **env)
 {
 	if (ac < 3 || ac > 4)
 	{
@@ -67,16 +63,16 @@ int	main(int ac, char **av)
 	printf("****               42 libasm-tests               ****\n");
 	printf("%s", RESET);
 	if (!strcmp(av[1], "mandatory"))
-		launch_mandatory_test(av[2]);
+		launch_mandatory_test(av[2], env);
 	else if (!strcmp(av[1], "bonus"))
-		launch_bonus_test(av[2]);
+		launch_bonus_test(av[2], env);
 	else if (!strcmp(av[1], "all"))
 	{
-		launch_mandatory_test(av[2]);
+		launch_mandatory_test(av[2], env);
 		printf("%s", YELLOW);
 		printf("*****************************************************\n");
 		printf("%s", RESET);
-		launch_bonus_test(av[3]);
+		launch_bonus_test(av[3], env);
 	}
 	return (0);
 }
