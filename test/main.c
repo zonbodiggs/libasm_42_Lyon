@@ -6,19 +6,14 @@
 /*   By: endoliam <endoliam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 09:29:11 by endoliam          #+#    #+#             */
-/*   Updated: 2025/12/19 14:27:40 by endoliam         ###   ########.fr       */
+/*   Updated: 2026/02/10 09:28:23 by endoliam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_libasm.h"
 
-int	launch_mandatory_test(char *static_library, char **env)
+int	launch_mandatory_test(void)
 {
-	// if (strcmp(static_library, "libasm.a"))
-	// 	return (1);
-	// charge_library(static_library, env);
-	(void)static_library;
-	(void)env;
 	printf("%s", YELLOW);
 	printf("****                  MANDATORY                  ****\n");
 	printf("*****************************************************\n");
@@ -32,13 +27,8 @@ int	launch_mandatory_test(char *static_library, char **env)
 	return (0);
 }
 
-int	launch_bonus_test(char *static_library, char **env)
+int	launch_bonus_test(void)
 {
-	// if (strcmp(static_library, "libasm_bonus.a"))
-	// 	return (1);
-	// charge_library(static_library, env);
-	(void)static_library;
-	(void)env;
 	printf("%s", YELLOW);
 	printf("****                    BONUS                    ****\n");
 	printf("*****************************************************\n");
@@ -51,7 +41,7 @@ int	launch_bonus_test(char *static_library, char **env)
 	return (0);
 }
 
-int	main(int ac, char **av, char **env)
+int	main(int ac, char **av)
 {
 	if (ac < 3 || ac > 4)
 	{
@@ -63,16 +53,16 @@ int	main(int ac, char **av, char **env)
 	printf("****               42 libasm-tests               ****\n");
 	printf("%s", RESET);
 	if (!strcmp(av[1], "mandatory"))
-		launch_mandatory_test(av[2], env);
+		launch_mandatory_test();
 	else if (!strcmp(av[1], "bonus"))
-		launch_bonus_test(av[2], env);
+		launch_bonus_test();
 	else if (!strcmp(av[1], "all"))
 	{
-		launch_mandatory_test(av[2], env);
+		launch_mandatory_test();
 		printf("%s", YELLOW);
 		printf("*****************************************************\n");
 		printf("%s", RESET);
-		launch_bonus_test(av[3], env);
+		launch_bonus_test();
 	}
 	return (0);
 }

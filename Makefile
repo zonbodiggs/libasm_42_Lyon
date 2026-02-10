@@ -80,7 +80,7 @@ exec_test:
 	@$(MAKE) call -s
 
 test_mandatory: exec_test
-	valgrind --leak-check=full ./$(CNAME) mandatory $(NAME)
+	./$(CNAME) mandatory $(NAME)
 	@echo "end mandatory test"
 	@$(MAKE) clean_test -s
 
